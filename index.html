@@ -1,0 +1,55 @@
+<!doc type>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <!-- https://github.com/chrisdavies/tiny-date-picker -->
+
+
+        <link rel="stylesheet" href="vendor/tiny-date-picker.min.css">
+        <script src="vendor/tiny-date-picker.min.js"></script>        
+
+
+    </head>
+    
+    <body>
+
+        <input type="text" id="date" tabindex="400"/>
+        <h1>u4bi</h1>
+
+        <script>
+            var 
+                element = document.getElementById('date'),
+
+                opts = {
+                    mode : 'dp-below', // dp-modal 모달 형태로 디폴트 / dp-below 인풋 아래에
+                    onOpen : function(item){
+                        console.log('onOpen', item);
+
+                    },
+                    onSelectYear : function(item){
+                        console.log('onSelectYear', item);
+
+                    },
+                    onSelectMonth : function(item){
+                        console.log('onSelectMonth', item);
+                    }
+                };
+
+            // console.log(element, opts);
+
+            var date = TinyDatePicker(element, opts);
+
+
+            element.addEventListener('click', function(e){
+                date.open();
+            });
+
+            element.addEventListener('change', function(e){
+                console.log('result : ' + e.target.value);
+            });            
+
+
+        </script>
+    </body>
+</html>
